@@ -12,9 +12,6 @@ public class Round {
     private Long roundTypeId;
     private List<RoundExercise> exercises;
 
-    public Round() {
-    }
-
     public Round(Long id, Integer rest, LocalDateTime createdAt, Long routineId, Long roundTypeId, List<RoundExercise> exercises) {
         this.id = id;
         this.rest = rest;
@@ -72,11 +69,5 @@ public class Round {
         this.exercises = exercises;
     }
 
-    public Round(Integer rest, Long routineId, Long roundTypeId, List<RoundExercise> exercises) {
-        this.rest = rest;
-        this.routineId = routineId;
-        this.roundTypeId = roundTypeId;
-        this.exercises = exercises;
-    }
 
 }

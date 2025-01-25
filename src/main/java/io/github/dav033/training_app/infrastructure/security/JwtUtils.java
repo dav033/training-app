@@ -16,6 +16,7 @@ public class JwtUtils {
     @Value("${application.security.jwt.secret-key}")
     private String secretKey;
 
+
     public boolean isTokenExpired(final String token) {
         return extractExpiration(token).before(new Date());
     }
@@ -33,6 +34,9 @@ public class JwtUtils {
     public SecretKey getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
 
+        System.out.println("secretKey: " + secretKey);
+
+
         System.out.println("keyBytes: " + keyBytes);
         return Keys.hmacShaKeyFor(keyBytes);
     }
@@ -43,7 +47,6 @@ public class JwtUtils {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-
 
 
         return jwtToken.get("email", String.class);

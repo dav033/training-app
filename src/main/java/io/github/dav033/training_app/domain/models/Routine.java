@@ -31,6 +31,14 @@ public class Routine {
         this.rounds = rounds;
     }
 
+    public Routine(String name, String description, BigDecimal price) {
+        this.name = name;
+        this.description = description;
+        this.trainingId = trainingId;
+        this.price = price;
+    }
+
+
     public Long getId() {
         return id;
     }

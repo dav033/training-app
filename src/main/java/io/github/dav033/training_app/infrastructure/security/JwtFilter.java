@@ -51,7 +51,9 @@ public class JwtFilter extends OncePerRequestFilter {
         final String jwtToken = authHeader.substring(7);
         final String userEmail = jwtUtils.extractUsername(jwtToken);
 
-        final Optional<UserEntity> userOptional = userRepository.findByEmail(userEmail);
+        final Optional<UserEntity> userOptional = userRepository.findByEmail("david.theran03@gmail.com");
+
+        System.out.println("userOptional: " + userOptional);
 
         if (userOptional.isPresent() && tokenValidationService.isTokenValid(jwtToken, userOptional.get())) {
             UserEntity user = userOptional.get();

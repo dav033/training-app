@@ -16,6 +16,8 @@ public class CreateRoutineUseCase {
     }
 
     public Routine execute(Routine routine) {
+
+        System.out.println("CreateRoutineUseCase.execute() routine: " + routine);
         return persistencePort.save(routine);
     }
 }

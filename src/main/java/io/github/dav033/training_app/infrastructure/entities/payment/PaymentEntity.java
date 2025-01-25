@@ -42,15 +42,6 @@ public class PaymentEntity {
     public PaymentEntity() {
     }
 
-    public PaymentEntity(UserEntity user, BigDecimal amount, PaymentStatus status, PaymentMethod method, String methodDetails) {
-        this.user = user;
-        this.amount = amount;
-        this.status = status;
-        this.method = method;
-        this.methodDetails = methodDetails;
-        this.createdAt = LocalDateTime.now(); // Valor por defecto
-    }
-
     public PaymentEntity(Long id, UserEntity user, BigDecimal amount, PaymentStatus status, PaymentMethod method, String methodDetails, LocalDateTime createdAt) {
         this.id = id;
         this.user = user;

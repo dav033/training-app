@@ -31,10 +31,9 @@ public class RoutineEntity {
 
 
     @PrePersist
-    @PreUpdate
-    private void validatePrice() {
-        if (training == null && price.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalStateException("Independent routines must have a price greater than 0.00");
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
         }
     }
 

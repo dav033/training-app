@@ -3,7 +3,9 @@ package io.github.dav033.training_app.infrastructure.adapters.out.mappers;
 import io.github.dav033.training_app.domain.models.Routine;
 import io.github.dav033.training_app.infrastructure.entities.training.RoutineEntity;
 import io.github.dav033.training_app.infrastructure.entities.training.TrainingEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RoutineMapper {
 
     public static Routine toDomain(RoutineEntity entity) {
