@@ -23,7 +23,6 @@ public class PaymentPersistenceAdapter implements PaymentPersistencePort {
 
     @Override
     public Payment save(Payment payment) {
-        // Convertir userId en UserEntity antes de guardar
         UserEntity userEntity = userRepository.findById(payment.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 

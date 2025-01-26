@@ -31,7 +31,11 @@ public class Payment {
         this.status = status;
         this.method = method;
         this.methodDetails = methodDetails;
-        this.createdAt = LocalDateTime.now(); // Valor por defecto
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public Payment() {
+        
     }
 
     public Long getId() {
@@ -60,5 +64,8 @@ public class Payment {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public void setId(Long paymentId) {
     }
 }

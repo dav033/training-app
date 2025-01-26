@@ -11,12 +11,12 @@ public class RoutineMapper {
     public static Routine toDomain(RoutineEntity entity) {
         return new Routine(
                 entity.getId(),
-                entity.getTraining() != null ? entity.getTraining().getId() : null, // Convertir TrainingEntity a trainingId
+                entity.getTraining() != null ? entity.getTraining().getId() : null,
                 entity.getName(),
                 entity.getDescription(),
                 entity.getPrice(),
                 entity.getCreatedAt(),
-                null // Se manejará en otro Mapper si es necesario
+                null
         );
     }
 
@@ -27,7 +27,7 @@ public class RoutineMapper {
                 routine.getDescription(),
                 routine.getPrice(),
                 routine.getCreatedAt(),
-                trainingEntity // Convertir trainingId a TrainingEntity
+                trainingEntity
         );
     }
 }

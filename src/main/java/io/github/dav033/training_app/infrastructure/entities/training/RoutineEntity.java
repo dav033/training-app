@@ -25,7 +25,7 @@ public class RoutineEntity {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @ManyToOne(optional = true) // Permite que training_id sea NULL
+    @ManyToOne(optional = true)
     @JoinColumn(name = "training_id", nullable = true)
     private TrainingEntity training;
 
@@ -36,8 +36,6 @@ public class RoutineEntity {
             createdAt = LocalDateTime.now();
         }
     }
-
-    //getter and setter
 
     public Long getId() {
         return id;

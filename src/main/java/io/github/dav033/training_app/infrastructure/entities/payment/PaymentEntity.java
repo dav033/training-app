@@ -10,8 +10,11 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Data
+@AllArgsConstructor
 @Entity
 @Table(name = "payments")
+@NoArgsConstructor
 public class PaymentEntity {
 
     @Id
@@ -39,44 +42,4 @@ public class PaymentEntity {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public PaymentEntity() {
-    }
-
-    public PaymentEntity(Long id, UserEntity user, BigDecimal amount, PaymentStatus status, PaymentMethod method, String methodDetails, LocalDateTime createdAt) {
-        this.id = id;
-        this.user = user;
-        this.amount = amount;
-        this.status = status;
-        this.method = method;
-        this.methodDetails = methodDetails;
-        this.createdAt = createdAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public PaymentStatus getStatus() {
-        return status;
-    }
-
-    public PaymentMethod getMethod() {
-        return method;
-    }
-
-    public String getMethodDetails() {
-        return methodDetails;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 }

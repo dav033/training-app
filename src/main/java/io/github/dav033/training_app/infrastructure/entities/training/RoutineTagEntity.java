@@ -20,7 +20,6 @@ public class RoutineTagEntity {
     @JoinColumn(name = "tag_id", nullable = false)
     private TagEntity tag;
 
-    //getter and setter
 
     public Long getId() {
         return id;
@@ -46,7 +45,6 @@ public class RoutineTagEntity {
         this.tag = tag;
     }
 
-    //contructors
 
     public RoutineTagEntity() {
     }

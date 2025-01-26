@@ -32,8 +32,6 @@ public class ExerciseEntity {
         }
     }
 
-    //getters and setters
-
     public Long getId() {
         return id;
     }
@@ -65,8 +63,6 @@ public class ExerciseEntity {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
-    //constructors
 
     public ExerciseEntity(Long id, String name, String description) {
         this.id = id;

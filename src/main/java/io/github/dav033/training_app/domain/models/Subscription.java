@@ -6,16 +6,19 @@ import java.time.LocalDateTime;
 
 public class Subscription {
     private Long id;
-    private User user; // Relación fuerte con el usuario
+    private User user;
     private SubscriptionStatus status;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Payment payment;
 
+
     public Subscription() {
     }
 
-    public Subscription(User user, SubscriptionStatus status, LocalDateTime startDate, LocalDateTime endDate, Payment payment) {
+    // 🔹 Constructor principal con objetos completos
+    public Subscription(Long id, User user, SubscriptionStatus status, LocalDateTime startDate, LocalDateTime endDate, Payment payment) {
+        this.id = id;
         this.user = user;
         this.status = status;
         this.startDate = startDate;
@@ -23,6 +26,19 @@ public class Subscription {
         this.payment = payment;
     }
 
+    // 🔹 Constructor con solo IDs para evitar carga innecesaria de entidades
+    public Subscription(Long id, Long userId, SubscriptionStatus status, LocalDateTime startDate, LocalDateTime endDate, Long paymentId) {
+        this.id = id;
+        this.user = userId != null ? new User() : null;
+        if (this.user != null) this.user.setId(userId);
+        this.status = status;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.payment = paymentId != null ? new Payment() : null;
+        if (this.payment != null) this.payment.setId(paymentId);
+    }
+
+    // 🔹 Getters y Setters
     public Long getId() {
         return id;
     }
@@ -34,7 +50,6 @@ public class Subscription {
     public User getUser() {
         return user;
     }
-
 
     public void setUser(User user) {
         this.user = user;
@@ -70,5 +85,14 @@ public class Subscription {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    // 🔹 Métodos adicionales para obtener los IDs sin exponer las entidades
+    public Long getUserId() {
+        return user != null ? user.getId() : null;
+    }
+
+    public Long getPaymentId() {
+        return payment != null ? payment.getId() : null;
     }
 }

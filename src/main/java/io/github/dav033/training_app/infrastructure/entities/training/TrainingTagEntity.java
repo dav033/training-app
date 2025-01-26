@@ -20,8 +20,6 @@ public class TrainingTagEntity {
     @JoinColumn(name = "tag_id", nullable = false)
     private TagEntity tag;
 
-    //getter and setter
-
     public Long getId() {
         return id;
     }
@@ -45,8 +43,6 @@ public class TrainingTagEntity {
     public void setTag(TagEntity tag) {
         this.tag = tag;
     }
-
-    //Contructors
 
     public TrainingTagEntity() {
     }

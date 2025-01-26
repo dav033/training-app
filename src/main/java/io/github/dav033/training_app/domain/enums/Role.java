@@ -12,7 +12,6 @@ public enum Role {
         this.permissions = permissions;
     }
 
-    // Explicitly define getPermissions() method
     public Set<Permission> getPermissions() {
         return permissions;
     }

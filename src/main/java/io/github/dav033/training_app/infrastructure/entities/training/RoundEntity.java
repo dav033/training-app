@@ -30,8 +30,6 @@ public class RoundEntity {
     @OneToMany(mappedBy = "round", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoundExerciseEntity> exercises;
 
-    //getter and setter
-
     public Long getId() {
         return id;
     }

@@ -6,12 +6,12 @@ import java.util.List;
 
 public class Routine {
     private Long id;
-    private Long trainingId; // Puede ser nulo (rutina independiente)
+    private Long trainingId;
     private String name;
     private String description;
     private BigDecimal price;
     private LocalDateTime createdAt;
-    private List<Round> rounds; // Relación fuerte
+    private List<Round> rounds;
 
     public Routine(Long id, Long trainingId, String name, String description, BigDecimal price, LocalDateTime createdAt, List<Round> rounds) {
         this.id = id;

@@ -26,6 +26,9 @@ public class UserAccess {
         this.endDate = endDate;
     }
 
+    public UserAccess(Long id, Long userId, Long trainingId, Long routineId, String accessType, LocalDateTime startDate, LocalDateTime endDate) {
+    }
+
     public Long getId() {
         return id;
     }

@@ -10,7 +10,7 @@ public class Training {
     private String description;
     private BigDecimal price;
     private LocalDateTime createdAt;
-    private List<Routine> routines; // Relación opcional
+    private List<Routine> routines;
 
     public Training(Long id, String name, String description, BigDecimal price, LocalDateTime createdAt, List<Routine> routines) {
         this.id = id;

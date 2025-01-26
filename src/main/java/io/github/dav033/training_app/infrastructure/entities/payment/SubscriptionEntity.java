@@ -1,6 +1,7 @@
 package io.github.dav033.training_app.infrastructure.entities.payment;
 
 
+import io.github.dav033.training_app.domain.enums.SubscriptionStatus;
 import io.github.dav033.training_app.infrastructure.entities.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,7 +25,7 @@ public class SubscriptionEntity {
     private UserEntity user;
 
     @Column(nullable = false)
-    private String status; // Define un enum si es necesario
+    private String status;
 
     @Column(name = "start_date", nullable = false)
     private LocalDateTime startDate = LocalDateTime.now();
@@ -36,7 +37,8 @@ public class SubscriptionEntity {
     @JoinColumn(name = "payment_id", nullable = false)
     private PaymentEntity payment;
 
-    //getter and setter
+    public SubscriptionEntity(Long id, UserEntity userEntity, SubscriptionStatus status, LocalDateTime startDate, LocalDateTime endDate, PaymentEntity paymentEntity) {
+    }
 
     public Long getId() {
         return id;

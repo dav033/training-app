@@ -12,7 +12,7 @@ public class User {
     private Role role;
     private String email;
     private LocalDateTime createdAt;
-    private List<Payment> payments; // Relación fuerte
+    private List<Payment> payments;
 
     public User(Long id, UUID uid, Role role, String email, LocalDateTime createdAt, List<Payment> payments) {
         this.id = id;

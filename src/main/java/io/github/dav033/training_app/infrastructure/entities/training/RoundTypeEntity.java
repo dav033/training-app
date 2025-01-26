@@ -18,7 +18,6 @@ public class RoundTypeEntity {
     @JoinColumn(name = "routine_id", nullable = false)
     private RoutineEntity routine;
 
-    //getter and setter
 
     public Long getId() {
         return id;
@@ -43,8 +42,6 @@ public class RoundTypeEntity {
     public void setRoutine(RoutineEntity routine) {
         this.routine = routine;
     }
-
-    //contructors
 
     public RoundTypeEntity() {
     }

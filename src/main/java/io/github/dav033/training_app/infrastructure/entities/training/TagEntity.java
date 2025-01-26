@@ -26,7 +26,6 @@ public class TagEntity {
     @OneToMany(mappedBy = "tag")
     private List<RoutineTagEntity> routineTags;
 
-    //getter and setter
 
     public Long getId() {
         return id;

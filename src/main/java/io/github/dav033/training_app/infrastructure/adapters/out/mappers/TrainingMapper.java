@@ -17,7 +17,7 @@ public class TrainingMapper {
                 entity.getDescription(),
                 entity.getPrice(),
                 entity.getCreatedAt(),
-                null // La lista de routines se maneja en otro mapper
+                null
         );
     }
 

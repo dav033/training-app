@@ -3,6 +3,7 @@ package io.github.dav033.training_app.infrastructure.adapters.out;
 
 import io.github.dav033.training_app.application.ports.output.ExercisePersistencePort;
 import io.github.dav033.training_app.domain.models.Exercise;
+import io.github.dav033.training_app.infrastructure.adapters.out.mappers.ExerciseMapper;
 import io.github.dav033.training_app.infrastructure.entities.training.ExerciseEntity;
 import io.github.dav033.training_app.infrastructure.repositories.ExerciseRepository;
 import org.springframework.stereotype.Component;
@@ -14,16 +15,20 @@ import java.util.Optional;
 public class ExercisePersistenceAdapter implements ExercisePersistencePort {
 
     private final ExerciseRepository repository;
+    private final ExerciseMapper mapper;
 
-    public ExercisePersistenceAdapter(ExerciseRepository repository) {
+
+
+    public ExercisePersistenceAdapter(ExerciseRepository repository, ExerciseMapper mapper) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
     @Override
     public Exercise save(Exercise exercise) {
-        ExerciseEntity entity = new ExerciseEntity(null, exercise.getName(), exercise.getDescription());
+        ExerciseEntity entity = mapper.toEntity(exercise);
         ExerciseEntity savedEntity = repository.save(entity);
-        return new Exercise(savedEntity.getId(), savedEntity.getName(), savedEntity.getDescription(), savedEntity.getCreatedAt());
+        return mapper.toDomain(savedEntity);
     }
 
     @Override

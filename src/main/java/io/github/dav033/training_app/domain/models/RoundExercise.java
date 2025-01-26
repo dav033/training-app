@@ -2,7 +2,7 @@ package io.github.dav033.training_app.domain.models;
 
 public class RoundExercise {
     private Long id;
-    private Exercise exercise; // Asociación con Exercise (Referencia Fuerte)
+    private Exercise exercise;
     private String repetitions;
     private Integer position;
 

@@ -41,8 +41,8 @@ public class RoundMapper {
                 entity.getId(),
                 entity.getRest(),
                 entity.getCreatedAt(),
-                entity.getRoutine() != null ? entity.getRoutine().getId() : null, // ✅ Pasamos solo el ID de la rutina
-                entity.getRoundType() != null ? entity.getRoundType().getId() : null, // ✅ Pasamos solo el ID del tipo de round
+                entity.getRoutine() != null ? entity.getRoutine().getId() : null,
+                entity.getRoundType() != null ? entity.getRoundType().getId() : null,
                 entity.getExercises().stream()
                         .map(roundExerciseMapper::toDomain)
                         .collect(Collectors.toList())
@@ -55,33 +55,29 @@ public class RoundMapper {
     public RoundEntity toEntity(Round round, RoutineEntity routineEntity) {
         if (round == null) return null;
 
-        // ✅ Buscamos la entidad `RoundTypeEntity` en la base de datos si existe
         RoundTypeEntity roundTypeEntity = round.getRoundTypeId() != null
                 ? roundTypeRepository.findById(round.getRoundTypeId())
                 .orElseThrow(() -> new RuntimeException("RoundType not found with ID: " + round.getRoundTypeId()))
                 : null;
 
-        // ✅ Creamos la entidad `RoundEntity`
         RoundEntity roundEntity = new RoundEntity(
                 round.getId(),
                 routineEntity,
                 roundTypeEntity,
                 round.getRest(),
                 round.getCreatedAt(),
-                List.of() // Inicializamos la lista de ejercicios vacía (se llenará después)
+                List.of()
         );
 
-        // ✅ Convertimos cada `RoundExercise` con `roundEntity` correctamente asignado
         List<RoundExerciseEntity> exerciseEntities = round.getExercises().stream()
                 .map(exercise -> roundExerciseMapper.toEntity(
                         exercise,
                         roundEntity,
-                        exerciseMapper.toEntity(exercise.getExercise()) // ✅ Convertimos `Exercise` a `ExerciseEntity`
+                        exerciseMapper.toEntity(exercise.getExercise())
                 ))
-                .collect(Collectors.toList()); // ✅ Convertimos `Stream` a `List`
+                .collect(Collectors.toList());
 
 
-        // ✅ Asignamos la lista convertida a la entidad
         roundEntity.setExercises(exerciseEntities);
 
         return roundEntity;

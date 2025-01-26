@@ -1,6 +1,7 @@
 package io.github.dav033.training_app.infrastructure.entities.payment;
 
 
+import io.github.dav033.training_app.domain.enums.AccessType;
 import io.github.dav033.training_app.infrastructure.entities.training.RoutineEntity;
 import io.github.dav033.training_app.infrastructure.entities.training.TrainingEntity;
 import io.github.dav033.training_app.infrastructure.entities.UserEntity;
@@ -38,7 +39,8 @@ public class UserAccessEntity {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    //getter and setter
+    public UserAccessEntity(Long id, UserEntity userEntity, TrainingEntity trainingEntity, RoutineEntity routineEntity, AccessType accessType, LocalDateTime startDate, LocalDateTime endDate) {
+    }
 
     public Long getId() {
         return id;
@@ -97,7 +99,6 @@ public class UserAccessEntity {
         this.endDate = endDate;
     }
 
-    //Contructors
     public UserAccessEntity() {
     }
 

@@ -32,8 +32,8 @@ public class RoundExerciseMapper {
         }
         return new RoundExerciseEntity(
                 roundExercise.getId(),
-                roundEntity,  // ✅ Se pasa el `RoundEntity` correcto
-                exerciseEntity,  // ✅ Se pasa `ExerciseEntity`
+                roundEntity,
+                exerciseEntity,
                 roundExercise.getRepetitions(),
                 roundExercise.getPosition()
         );
