@@ -23,7 +23,10 @@ public class TrainingAdminController {
 
     @PostMapping
     public ResponseEntity<String> createRoutine(@RequestBody CreateRoutineRequest request) {
-        Routine routine = new Routine(request.name(), request.description(), request.price());
+        Routine routine = Routine.builder()
+                .name(request.name())
+                .description(request.description())
+                .build();
         Routine createdRoutine = createRoutineUseCase.execute(routine);
         return ResponseEntity.ok("Routine created with id: " + createdRoutine.getId());
     }

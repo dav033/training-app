@@ -26,7 +26,11 @@ public class ExerciseAdminController {
 
         System.out.println("ExerciseAdminController.createExercise" + exerciseRequest);
 
-        Exercise exercise = new Exercise(exerciseRequest.name(), exerciseRequest.description());
+        Exercise exercise = Exercise.builder()
+                .name(exerciseRequest.name())
+                .description(exerciseRequest.description())
+                .build();
+        
         Exercise createdExercise = createExerciseUseCase.execute(exercise);
 
         return ResponseEntity.ok("Exercise created with id: " + createdExercise.getId());

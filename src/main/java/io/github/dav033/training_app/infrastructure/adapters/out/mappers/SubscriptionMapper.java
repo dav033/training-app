@@ -17,7 +17,7 @@ public class SubscriptionMapper {
         return new Subscription(
                 entity.getId(),
                 entity.getUser() != null ? entity.getUser().getId() : null,
-                SubscriptionStatus.valueOf(entity.getStatus()),
+                SubscriptionStatus.valueOf(String.valueOf(entity.getStatus())),
                 entity.getStartDate(),
                 entity.getEndDate(),
                 entity.getPayment() != null ? entity.getPayment().getId() : null

@@ -18,7 +18,6 @@ public class ExercisePersistenceAdapter implements ExercisePersistencePort {
     private final ExerciseMapper mapper;
 
 
-
     public ExercisePersistenceAdapter(ExerciseRepository repository, ExerciseMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;

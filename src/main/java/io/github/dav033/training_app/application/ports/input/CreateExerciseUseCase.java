@@ -16,6 +16,7 @@ public class CreateExerciseUseCase {
 
     public Exercise execute(Exercise exercise) {
 
+        System.out.println("CreateExerciseUseCase.execute" + exercise.getName());
         return persistencePort.save(exercise);
     }
 }

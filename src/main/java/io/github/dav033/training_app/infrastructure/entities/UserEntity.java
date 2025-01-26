@@ -25,7 +25,6 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 

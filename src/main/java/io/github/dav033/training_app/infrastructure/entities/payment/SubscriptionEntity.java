@@ -9,13 +9,13 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
-@Builder
+@Table(name = "subscriptions")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "subscriptions")
+@Builder
 public class SubscriptionEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,8 +24,9 @@ public class SubscriptionEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status;
+    private SubscriptionStatus status;
 
     @Column(name = "start_date", nullable = false)
     private LocalDateTime startDate = LocalDateTime.now();
@@ -36,55 +37,4 @@ public class SubscriptionEntity {
     @ManyToOne
     @JoinColumn(name = "payment_id", nullable = false)
     private PaymentEntity payment;
-
-    public SubscriptionEntity(Long id, UserEntity userEntity, SubscriptionStatus status, LocalDateTime startDate, LocalDateTime endDate, PaymentEntity paymentEntity) {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public PaymentEntity getPayment() {
-        return payment;
-    }
-
-    public void setPayment(PaymentEntity payment) {
-        this.payment = payment;
-    }
 }
